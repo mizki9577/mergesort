@@ -1,6 +1,0 @@
-[package]
-name = "mergesort"
-version = "1.0.0"
-authors = ["Mizki SUZUMORI <mizki9577@gmail.com>"]
-
-[dependencies]

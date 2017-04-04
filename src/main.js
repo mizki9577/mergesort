@@ -1,4 +1,6 @@
-const buffer = new SharedArrayBuffer(2**10 * Uint32Array.BYTES_PER_ELEMENT)
+import '../target/asmjs-unknown-emscripten/debug/mergesort.js'
+
+const buffer = new SharedArrayBuffer(2**10 * 4)
 const data = new Uint32Array(buffer)
 for (let i = 0; i < data.length; ++i) {
   data[i] = i + 1
@@ -25,9 +27,6 @@ const frame = () => {
   context.stroke()
   window.requestAnimationFrame(frame)
 }
-
-const worker = new Worker('./worker.js')
-worker.postMessage(data)
 
 window.requestAnimationFrame(frame)
 
