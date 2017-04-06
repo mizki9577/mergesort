@@ -1,8 +1,4 @@
-const quick_sort = data => {
-  if (data.length <= 1) {
-    return
-  }
-
+onmessage = ({ data }) => {
   let left = 0
   let right = data.length - 1
   let pivod = data[right]
@@ -29,11 +25,13 @@ const quick_sort = data => {
     } else break
   }
 
-  return [data.subarray(0, left), data.subarray(left, data.length)]
-}
-
-onmessage = ev => {
-  postMessage(quick_sort(ev.data))
+  if (1 < left) {
+    postMessage(data.subarray(0, left))
+  }
+  if (left < data.length - 1) {
+    postMessage(data.subarray(left, data.length))
+  }
+  postMessage(null)
 }
 
 // vim: set ts=2 sw=2 et:
