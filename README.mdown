@@ -1,2 +1,2 @@
 # What the heck is this?
-An small experimental program which visualize parallel merge sort algorithm in your web browser. My and its purpose is to test of several technologies and tools, such as Rust, Emscripten, WebAssembly (or asm.js), Web worker, `SharedArrayBuffer`, and so on.
+An small experimental program which visualize parallel quick sort algorithm in your web browser. My and its purpose is to test of several technologies and tools, such as Rust, Emscripten, WebAssembly (or asm.js), Web worker, `SharedArrayBuffer`, and so on.

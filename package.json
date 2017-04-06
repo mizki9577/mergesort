@@ -1,5 +1,5 @@
 {
-  "name": "mergesort",
+  "name": "quicksort",
   "version": "1.0.0",
   "description": "quicksort",
   "private": true,
