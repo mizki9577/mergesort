@@ -1,2 +1,9 @@
-# What the heck is this?
-An small experimental program which visualize parallel quick sort algorithm in your web browser. My and its purpose is to test of several technologies and tools, such as Rust, Emscripten, WebAssembly (or asm.js), Web worker, `SharedArrayBuffer`, and so on.
+# quicksort
+
+## What the heck is this?
+
+An small experimental program which visualize parallel quick sort algorithm in your web browser. My early purpose was to test of several technologies and tools, such as ~~Rust~~, ~~Emscripten~~, ~~WebAssembly (or asm.js)~~, Web worker, `SharedArrayBuffer`, and so on.
+
+## Okay, then what have you achieved on it?
+
+`SharedArrayBuffer` cannot be worked with WebAssembly and asm.js in April 2017. My purpose above was not achieved, thus this program is driven on pure hand-written JavaScript.
