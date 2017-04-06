@@ -1,29 +1,29 @@
 const N_WORKERS = 4
-const DATA_LENGTH = 1024
+const DATA_LENGTH = 2**14
 const TypedArray = Uint16Array
 
 const buffer = new SharedArrayBuffer(DATA_LENGTH * TypedArray.BYTES_PER_ELEMENT)
 const data = new TypedArray(buffer)
-for (let i = 0; i < data.length; ++i) {
+for (let i = 0; i < DATA_LENGTH; ++i) {
   data[i] = i + 1
 }
 data.sort(() => Math.random() - 0.5)  // shuffle data
 
 const canvas = document.getElementById('canvas')
 const context = canvas.getContext('2d')
-const size = data.length
-canvas.width  = size
-canvas.height = size
+const width = window.innerWidth
+const height = window.innerHeight
+canvas.width  = width
+canvas.height = height
 context.lineWidth = 1
 context.strokeStyle = 'white'
 
 const render = () => {
-  context.clearRect(0, 0, size, size)
+  context.clearRect(0, 0, canvas.width, canvas.height)
   context.beginPath()
-  for (const [i, n] of data.entries()) {
-    // substract x-coordicate by 0.5, because canvas' coordicate is aligned to edges of each pixels
-    context.moveTo(i - 0.5, size)
-    context.lineTo(i - 0.5, size - n)
+  for (let i = 0; i < DATA_LENGTH; ++i) {
+    context.moveTo((i / DATA_LENGTH) * width, height)
+    context.lineTo((i / DATA_LENGTH) * width, (DATA_LENGTH - data[i]) / DATA_LENGTH * height)
   }
   context.stroke()
   window.requestAnimationFrame(render)
